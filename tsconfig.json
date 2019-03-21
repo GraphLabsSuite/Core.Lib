@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "declaration": true,
+    "outDir": "dist",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "src/main.ts"
+  ],
+  "exclude": [
+    "src/App.tsx",
+    "src/App.test.tsx",
+    "src/index.tsx",
+    "src/serviceWorker.ts"
+  ]
+}
