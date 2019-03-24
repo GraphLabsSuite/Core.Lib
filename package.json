@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@types/node": "^11.11.4",
+    "@types/jest": "24.0.11",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-scripts": "^2.1.8",
     "typescript": "^3.3.4000",
-    "@types/jest": "24.0.11"
+    "webpack-cli": "^3.3.0"
   },
   "main": "src/main.ts",
   "scripts": {
@@ -18,7 +18,7 @@
     "build:prod": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build": "webpack-cli --mode development --config ./webpack.config.ts"
+    "build": "webpack-cli --mode=production"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,11 +30,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/node": "^11.11.6",
     "@types/webpack": "^4.4.26",
+    "awesome-typescript-loader": "^5.2.1",
     "cross-env": "^5.2.0",
-    "ts-node": "^8.0.3",
-    "tsconfig-paths": "^3.8.0",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "source-map-loader": "^0.2.4"
   }
 }
