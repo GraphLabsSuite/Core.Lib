@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
     entry: "./src/main.ts",
     output: {
@@ -5,7 +7,6 @@ module.exports = {
         path: __dirname + "/dist"
     },
     devtool: "source-map",
-
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".json"]
     },

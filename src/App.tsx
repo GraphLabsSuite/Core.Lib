@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import './App.css';
+import {Matrix} from "./Matrix";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Matrix
+        rows={2}
+        columns={3}
+        handler={(val) => console.log(val)}
+        initial={[[1,2],[2,3], [3,4]]}
+      />
     );
   }
 }

@@ -5,6 +5,7 @@ import { MatrixRow } from './MatrixRow';
 export interface IMatrix {
   rows: number;
   columns: number;
+  initial?: number[][];
   handler: (values: number[][]) => void;
 }
 
@@ -13,8 +14,8 @@ export class Matrix extends Component<IMatrix> {
   values: number[][] = new Array(this.props.rows)
       .fill(new Array(this.props.columns).fill(0));
 
-  constructor(props: IMatrix) {
-      super(props);
+  componentDidMount() {
+      this.values = this.values || this.props.initial;
       this.props.handler(this.values);
   }
 
