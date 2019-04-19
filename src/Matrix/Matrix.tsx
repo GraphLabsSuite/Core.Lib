@@ -5,6 +5,7 @@ import { MatrixRow } from './MatrixRow';
 export interface IMatrix {
   rows: number;
   columns: number;
+  defaultValues?: number[][];
   handler: (values: number[][]) => void;
 }
 
