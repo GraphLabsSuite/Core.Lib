@@ -28,5 +28,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "dependencies": {
+    "@types/react": "^16.8.13",
+    "react": "^16.8.6"
+  }
 }
