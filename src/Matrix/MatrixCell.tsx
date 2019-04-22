@@ -7,6 +7,7 @@ interface State {
 
 export interface IMatrixCell {
   get: (e: number) => void;
+  readonly: boolean;
 }
 
 export class MatrixCell extends Component<IMatrixCell, State> {
@@ -20,14 +21,20 @@ export class MatrixCell extends Component<IMatrixCell, State> {
   }
 
   handler() {
-    this.setState(
-        {
-            value: this.state.value ? 0 : 1,
-        },
-        () => {
-          this.props.get(this.state.value);
-        });
+      if (this.props.readonly==true){
+
+      }
+      else {
+          this.setState(
+              {
+                  value: this.state.value ? 0 : 1,
+              },
+              () => {
+                  this.props.get(this.state.value);
+              });
+      }
   }
+
   render(): ReactNode {
     return (
         <div style={{ border: '1px double black', background: 'white', padding: '5px' }} onClick={this.handler}>
