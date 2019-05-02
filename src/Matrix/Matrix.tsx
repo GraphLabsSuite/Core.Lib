@@ -6,7 +6,9 @@ export interface IMatrix {
   rows: number;
   columns: number;
   initial?: number[][];
+  defaultValues?: number[][];
   handler: (values: number[][]) => void;
+  readonly: boolean;
 }
 
 export class Matrix extends Component<IMatrix> {
@@ -26,6 +28,14 @@ export class Matrix extends Component<IMatrix> {
       this.props.handler(this.values);
   }
 
+  componentWillReceiveProps(nextProps: IMatrix): void {
+      if(nextProps.defaultValues!==this.props.defaultValues){
+          if(nextProps.defaultValues) {
+              this.values = nextProps.defaultValues;
+          }
+      }
+  }
+
   render(): ReactNode {
     return (
       <div style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
@@ -33,7 +43,7 @@ export class Matrix extends Component<IMatrix> {
         {new Array(this.props.rows).fill(0).map((e, i) => {
           return (
               <div className="container" key={i}>
-                <MatrixRow length={this.props.columns} get={(el, c) => this.get(el, c, i)}/>
+                <MatrixRow length={this.props.columns} get={(el, c) => this.get(el, c, i)} readonly={this.props.readonly}/>
               </div>);
         })}
         </div>
