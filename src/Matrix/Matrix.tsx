@@ -7,7 +7,7 @@ export interface IMatrix {
   columns: number;
   initial?: number[][];
   defaultValues?: number[][];
-  handler: (values: number[][]) => void;
+  handler?: (values: number[][]) => void;
   readonly: boolean;
 }
 
@@ -18,14 +18,18 @@ export class Matrix extends Component<IMatrix> {
 
   componentDidMount() {
       this.values = this.values || this.props.initial;
-      this.props.handler(this.values);
+      if (this.props.handler) {
+          this.props.handler(this.values);
+      }
   }
 
   get(elem: number, column: number, row: number): void {
       const res = [...this.values[row]];
       res[column] = elem;
       this.values[row] = res;
-      this.props.handler(this.values);
+      if (this.props.handler) {
+          this.props.handler(this.values);
+      }
   }
 
   componentWillReceiveProps(nextProps: IMatrix): void {
