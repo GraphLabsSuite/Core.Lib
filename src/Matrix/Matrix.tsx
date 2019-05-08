@@ -6,7 +6,9 @@ export interface IMatrix {
   rows: number;
   columns: number;
   initial?: number[][];
-  handler: (values: number[][]) => void;
+  defaultValues?: number[][];
+  handler?: (values: number[][]) => void;
+  readonly: boolean;
 }
 
 export class Matrix extends Component<IMatrix> {
@@ -16,14 +18,26 @@ export class Matrix extends Component<IMatrix> {
 
   componentDidMount() {
       this.values = this.values || this.props.initial;
-      this.props.handler(this.values);
+      if (this.props.handler) {
+          this.props.handler(this.values);
+      }
   }
 
   get(elem: number, column: number, row: number): void {
       const res = [...this.values[row]];
       res[column] = elem;
       this.values[row] = res;
-      this.props.handler(this.values);
+      if (this.props.handler) {
+          this.props.handler(this.values);
+      }
+  }
+
+  componentWillReceiveProps(nextProps: IMatrix): void {
+      if(nextProps.defaultValues!==this.props.defaultValues){
+          if(nextProps.defaultValues) {
+              this.values = nextProps.defaultValues;
+          }
+      }
   }
 
   render(): ReactNode {
@@ -33,7 +47,7 @@ export class Matrix extends Component<IMatrix> {
         {new Array(this.props.rows).fill(0).map((e, i) => {
           return (
               <div className="container" key={i}>
-                <MatrixRow length={this.props.columns} get={(el, c) => this.get(el, c, i)}/>
+                <MatrixRow length={this.props.columns} get={(el, c) => this.get(el, c, i)} readonly={this.props.readonly}/>
               </div>);
         })}
         </div>
