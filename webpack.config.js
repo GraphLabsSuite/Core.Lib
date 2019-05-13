@@ -6,7 +6,7 @@ module.exports = {
     entry: "./src/main.ts",
     output: {
         filename: "[name].js",
-        library: 'graphlabs.core.lib',
+        library: '',
         libraryTarget: 'commonjs',
         path: __dirname + "/dist"
     },
