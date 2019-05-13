@@ -4,7 +4,7 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "umd",
-    "target": "esnext",
+    "target": "es5",
     "jsx": "react",
     "declaration": true,
     "lib": [

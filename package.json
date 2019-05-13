@@ -39,7 +39,7 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "main": "./dist/bundle.js",
+  "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "scripts": {
     "start": "node scripts/start.js",
