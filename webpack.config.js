@@ -7,7 +7,7 @@ module.exports = {
     output: {
         filename: "[name].js",
         library: 'graphlabs.core.lib',
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs',
         path: __dirname + "/dist"
     },
     devtool: "source-map",

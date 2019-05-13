@@ -54,6 +54,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/jest": "^24.0.12",
     "@types/node": "^11.11.6",
     "@types/webpack": "^4.4.26",
     "awesome-typescript-loader": "^5.2.1",
