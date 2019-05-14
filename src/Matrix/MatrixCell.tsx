@@ -8,6 +8,7 @@ interface State {
 export interface IMatrixCell {
   get: (e: number) => void;
   readonly: boolean;
+  defaultValue: number;
 }
 
 export class MatrixCell extends Component<IMatrixCell, State> {
