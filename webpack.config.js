@@ -1,12 +1,13 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { TsConfigPathsPlugin } = require('awesome-typescript-loader');
 
 module.exports = {
     mode: 'development',
     entry: "./src/main.ts",
     output: {
-        filename: "bundle.js",
-        library: 'graphlabs.core.lib',
-        libraryTarget: 'umd',
+        filename: "[name].js",
+        library: '',
+        libraryTarget: 'commonjs',
         path: __dirname + "/dist"
     },
     devtool: "source-map",
@@ -64,5 +65,6 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin(),
+        new TsConfigPathsPlugin(),
     ],
 };
