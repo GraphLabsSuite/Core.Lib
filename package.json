@@ -39,7 +39,7 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "main": "./dist/bundle.js",
+  "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "scripts": {
     "start": "node scripts/start.js",
@@ -54,6 +54,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/jest": "^24.0.12",
     "@types/node": "^11.11.6",
     "@types/webpack": "^4.4.26",
     "awesome-typescript-loader": "^5.2.1",

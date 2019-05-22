@@ -3,14 +3,17 @@
     "outDir": "./dist",
     "sourceMap": true,
     "noImplicitAny": true,
-    "module": "umd",
-    "target": "esnext",
+    "module": "commonjs",
+    "target": "es5",
     "jsx": "react",
     "declaration": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
+    ],
+    "types": [
+      "react"
     ],
     "skipLibCheck": true,
     "esModuleInterop": true,
