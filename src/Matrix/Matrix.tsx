@@ -40,14 +40,6 @@ export class Matrix extends Component<IMatrix> {
         }
     }
 
-    matrixRow(n: number): number[] {
-        if (this.props.defaultValues) {
-            return this.props.defaultValues.map(x => x[n]);
-        } else {
-            return this.values[n];
-        }
-    }
-
     render(): ReactNode {
         return (
             <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}>
@@ -56,7 +48,7 @@ export class Matrix extends Component<IMatrix> {
                         return (
                             <div className="container" key={i}>
                                 <MatrixRow length={this.props.columns} get={(el, c) => this.get(el, c, i)}
-                                           readonly={this.props.readonly} defaultValues={this.matrixRow(i)}/>
+                                           readonly={this.props.readonly} defaultValues={this.values[i]}/>
                             </div>);
                     })}
                 </div>
