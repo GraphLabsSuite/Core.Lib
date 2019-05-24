@@ -40,6 +40,12 @@ export class Matrix extends Component<IMatrix> {
         }
     }
 
+    componentWillMount(){
+        if(this.props.defaultValues){
+            this.values = this.props.defaultValues;
+        }
+    }
+
     render(): ReactNode {
         return (
             <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}>
