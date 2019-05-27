@@ -50,7 +50,7 @@ export class Matrix extends Component<IMatrix> {
         return (
             <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}>
                 <div>
-                    {new Array(this.props.rows).fill(0).map((e, i) => {
+                    {this.values.map((e, i) => {
                         return (
                             <div className="container" key={i}>
                                 <MatrixRow length={this.props.columns} get={(el, c) => this.get(el, c, i)}
