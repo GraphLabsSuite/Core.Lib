@@ -36,7 +36,15 @@ export class MatrixCell extends Component<IMatrixCell, State> {
       }
   }
 
-  render(): ReactNode {
+  componentDidMount(): void {
+      this.setState(
+          {
+              value: this.props.defaultValue,
+          }
+      )
+  }
+
+    render(): ReactNode {
     return (
         <div style={{ border: '1px double black', background: 'white', padding: '5px' }} onClick={this.handler}>
           {this.state.value}

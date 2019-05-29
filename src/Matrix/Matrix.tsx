@@ -5,7 +5,6 @@ import {MatrixRow} from './MatrixRow';
 export interface IMatrix {
     rows: number;
     columns: number;
-    initial?: number[][];
     defaultValues?: number[][];
     handler?: (values: number[][]) => void;
     readonly: boolean;
@@ -17,7 +16,9 @@ export class Matrix extends Component<IMatrix> {
         .fill(new Array(this.props.columns).fill(0));
 
     componentDidMount() {
-        this.values = this.values || this.props.initial;
+        if(this.props.defaultValues){
+            this.values = this.props.defaultValues;
+        }
         if (this.props.handler) {
             this.props.handler(this.values);
         }
@@ -37,12 +38,6 @@ export class Matrix extends Component<IMatrix> {
             if (nextProps.defaultValues) {
                 this.values = nextProps.defaultValues;
             }
-        }
-    }
-
-    componentWillMount(){
-        if(this.props.defaultValues){
-            this.values = this.props.defaultValues;
         }
     }
 
