@@ -10,7 +10,7 @@ class App extends Component {
                 readonly
                 columns={3}
                 handler={(val) => console.log(val)}
-                initial={[[1,2],[2,3], [3,4]]}
+                defaultValues={[[1,2],[2,3], [3,4]]}
             />
         );
     }
