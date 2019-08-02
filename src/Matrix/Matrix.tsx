@@ -59,11 +59,11 @@ export class Matrix extends Component<IMatrix, IState> {
 
     render(): ReactNode {
         return (
-            <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}>
+            <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto', position: 'absolute'}}>
                 <div>
                     {this.state.values.map((e, i) => {
                         return (
-                            <div className="container" key={i}>
+                            <div className="container;" key={i}>
                                 <MatrixRow
                                     length={this.props.columns}
                                     get={(el, c) => this.get(el, c, i)}
