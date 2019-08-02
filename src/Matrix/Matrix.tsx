@@ -59,7 +59,7 @@ export class Matrix extends Component<IMatrix, IState> {
 
     render(): ReactNode {
         return (
-            <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto'}}>
+            <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto', position: 'absolute'}}>
                 <div>
                     {this.state.values.map((e, i) => {
                         return (
