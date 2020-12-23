@@ -11,6 +11,7 @@ class App extends Component {
                 columns={3}
                 handler={(val) => console.log(val)}
                 defaultValues={[[1,2],[2,3], [3,4]]}
+                matrixFilling = {false}
             />
         );
     }
