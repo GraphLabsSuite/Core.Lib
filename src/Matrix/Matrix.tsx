@@ -8,6 +8,7 @@ export interface IMatrix {
     defaultValues?: number[][];
     handler?: (values: number[][]) => void;
     readonly: boolean;
+    matrixFilling?: boolean;
 }
 
 interface IState {
@@ -69,6 +70,7 @@ export class Matrix extends Component<IMatrix, IState> {
                                     get={(el, c) => this.get(el, c, i)}
                                     readonly={this.props.readonly}
                                     defaultValues={this.state.values[i]}
+                                    matrixFilling={this.props.matrixFilling}
                                 />
                             </div>);
                     })}
