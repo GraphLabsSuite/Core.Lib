@@ -12,6 +12,8 @@ export interface IMatrixCell {
     readonly: boolean;
     defaultValue: number;
     matrixFilling?: boolean;
+    isCellFirst?: boolean;
+    rowNum?:number;
 }
 
 export class MatrixCell extends Component<IMatrixCell, State> {
@@ -81,21 +83,61 @@ export class MatrixCell extends Component<IMatrixCell, State> {
 
 
     render(): ReactNode {
-        if (this.props.matrixFilling == true)
-        {
-            return (
-                <div>
-                    <input type="text" id={'cell'} name={'myCell'} size={1} style={{border: '1px double black',
-                        background: 'white', padding: '5px', textAlign: 'center'}} onChange={this.handlerForFilling}/>
-                </div>);
+        if (this.props.isCellFirst == true) {
+            if (this.props.matrixFilling == true) {
+                return (
+                    <div>
+                        <span style={{padding: '3px', fontFamily: 'Times'}}>
+                        {this.props.rowNum}
+                        </span>
+                        <input type="text" id={'cell'} name={'myCell'} size={2} style={{
+                            border: '1px double black',
+                            background: 'white', padding: '5px', textAlign: 'center',
+                            fontFamily: 'Times'
+                        }} onChange={this.handlerForFilling}/>
+                    </div>);
 
-        }
-        else {
-          return (
-               <div  style={{border: '1px double black', background: 'white', padding: '5px'}} onClick={this.handler}>
-                    {this.state.value}
+            } else {
+                return (
+                <div>
+                    <span style={{padding: '3px', fontFamily: 'Times'}}>
+                        {this.props.rowNum}
+                    </span>
+                    <span>
+                         <span>
+                        <input type="text" id={'cell'} name={'myCell'} size={2} style={{
+                            border: '1px double black',
+                            background: 'white', padding: '5px', textAlign: 'center',
+                            fontFamily: 'Times', cursor: 'pointer'
+                        }} onClick={this.handler} value={this.state.value} readOnly />
+                    </span>
+                    </span>
                 </div>);
-       }
+            }
+        } else {
+            if (this.props.matrixFilling == true) {
+                return (
+                    <div>
+                        <input type="text" id={'cell'} name={'myCell'} size={2} style={{
+                            border: '1px double black',
+                            background: 'white', padding: '5px', textAlign: 'center',
+                            fontFamily: 'Times'
+                        }} onChange={this.handlerForFilling}/>
+                    </div>);
+
+            } else {
+                return (
+                    <div>
+                        <span>
+                        <input type="text" id={'cell'} name={'myCell'} size={2} style={{
+                            border: '1px double black',
+                            background: 'white', padding: '5px', textAlign: 'center',
+                            fontFamily: 'Times', cursor: 'pointer'
+                        }} onClick={this.handler} value={this.state.value} readOnly/>
+                    </span>
+                    </div>);
+            }
+        }
     }
 }
 
