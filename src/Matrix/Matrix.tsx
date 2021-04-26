@@ -9,6 +9,7 @@ export interface IMatrix {
     handler?: (values: number[][]) => void;
     readonly: boolean;
     matrixFilling?: boolean;
+    edgeNaming?:boolean;
 }
 
 interface IState {
@@ -60,19 +61,37 @@ export class Matrix extends Component<IMatrix, IState> {
 
     render(): ReactNode {
         return (
-            <div style={{display: 'block', marginLeft: 'auto', marginRight: 'auto', position: 'absolute'}}>
+            <div style={{ display: 'block', marginLeft: 'auto', marginRight: 'auto', position:'absolute'}}>
                 <div>
                     {this.state.values.map((e, i) => {
-                        return (
-                            <div className="container" key={i}>
-                                <MatrixRow
-                                    length={this.props.columns}
-                                    get={(el, c) => this.get(el, c, i)}
-                                    readonly={this.props.readonly}
-                                    defaultValues={this.state.values[i]}
-                                    matrixFilling={this.props.matrixFilling}
-                                />
-                            </div>);
+                        if (i == 0){
+                            return (
+                                <div className="container" key={i}>
+                                    <MatrixRow
+                                        length={this.props.columns}
+                                        get={(el, c) => this.get(el, c, i)}
+                                        readonly={this.props.readonly}
+                                        defaultValues={this.state.values[i]}
+                                        matrixFilling={this.props.matrixFilling}
+                                        isRowFirst={true}
+                                        rowNum={i+1}
+                                        edgeNaming={this.props.edgeNaming}
+                                    />
+                                </div>);
+                        } else {
+                            return (
+                                <div className="container" key={i}>
+                                    <MatrixRow
+                                        length={this.props.columns}
+                                        get={(el, c) => this.get(el, c, i)}
+                                        readonly={this.props.readonly}
+                                        defaultValues={this.state.values[i]}
+                                        matrixFilling={this.props.matrixFilling}
+                                        rowNum={i+1}
+                                        edgeNaming={this.props.edgeNaming}
+                                    />
+                                </div>);
+                        }
                     })}
                 </div>
             </div>);

@@ -12,6 +12,7 @@ class App extends Component {
                 handler={(val) => console.log(val)}
                 defaultValues={[[1,2],[2,3], [3,4]]}
                 matrixFilling = {false}
+                edgeNaming={false}
             />
         );
     }
